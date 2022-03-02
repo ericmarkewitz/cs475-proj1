@@ -15,17 +15,18 @@
 //TODO - define queue's data members
 struct queue
 {
-	// TODO - pointer to head qentry
-	// TODO - pointer to tail qentry
-	// TODO - size of queue
+	struct qentry *head;
+	struct qentry *tail;
+	int32 size;
 };
 
 
 //TODO - define a queue entry's data members
 struct qentry
 {
-	// TODO - process ID
-	// TODO - other members
+	pid32 pid;
+	struct qentry *next;
+	struct qentry *prev;
 };
 
 
