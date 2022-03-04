@@ -12,6 +12,8 @@ struct queue *readyqueue;	/** ready queue */
  */
 status	ready(pid32 pid, bool8 resch)
 {
+	
+
 	register struct procent *prptr;
 
 	if (isbadpid(pid))
@@ -21,16 +23,20 @@ status	ready(pid32 pid, bool8 resch)
 	prptr = &proctab[pid];
 
 	// TODO - set the process' state pointed by prptr to "ready"
+	
 	prptr->prstate = PR_READY; //POSSIBLE ISSUE HERE
+	
 
 	// TODO - enqueue the process
 	pid32 rpid = enqueue(pid, readyqueue);
+	
 	if(rpid == SYSERR){
 		kprintf("ERROR ON ENQUEUE");
 	}
 
-	if (resch == RESCHED_YES)
+	if (resch == RESCHED_YES){
 		resched();
-
+	}
+		
 	return OK;
 }

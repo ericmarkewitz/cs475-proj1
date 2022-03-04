@@ -14,7 +14,8 @@ void	printqueue(struct queue *q)
 	struct qentry *currNode = q->head;
 	while(currNode != NULL){
 		pid32 currpid = currNode->pid;
-		kprintf("(%d),",currpid);
+		kprintf("%d,",currpid);
+		
 		currNode = currNode->next;
 	}
 	kprintf("]");
@@ -84,6 +85,7 @@ pid32 enqueue(pid32 pid, struct queue *q)
 		if(isempty(q)){
 			newQentry->next = NULL;
 			newQentry->prev = NULL;
+			newQentry->pid = pid;
 			q->head = newQentry;
 			q->tail = newQentry;
 			q->size = 1;
@@ -275,4 +277,5 @@ pid32	remove(pid32 pid, struct queue *q)
 			}
 		}
 	}
+	return SYSERR;
 }

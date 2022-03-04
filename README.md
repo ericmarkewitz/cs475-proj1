@@ -2,3 +2,6 @@
 
 Xinu Project 1
 https://davidtchiu.github.io/teaching/cs475/proj1/
+
+
+Eric Markewitz & Seung Park
